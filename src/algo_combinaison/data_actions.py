@@ -1,13 +1,53 @@
-from src.algo_combinaison.controllers.tools import get_objets_from_csv
-from src.algo_combinaison.models.models import Action
+import csv
+
+WALLET = 500  # maximun actions we can buy
+
+
+class Action:
+    def __init__(self, name, cost, profit_rate):
+        """
+        Initiate an action
+        :param name: str
+        :param cost: int
+        :param profit_rate: int
+        """
+        self.name = name
+        self.cost = cost
+        self.profit_rate = profit_rate
+        self.profit = self.calcul_profit()
+
+    def __repr__(self):
+        return f"{self.name} - {self.cost}€ - {self.profit_rate}%"
+
+    def calcul_profit(self):
+        profit = self.cost * self.profit_rate / 100
+        return profit
+
+
+def get_objets_from_csv(csv_path: str) -> list:
+    """
+    Create a list of Action objet from a csv file
+    :param csv_path: str
+    :return actions: list
+    """
+    actions = []
+    with open(csv_path, newline="") as csv_file:
+        reader = csv.reader(csv_file)
+        next(reader, None)
+        for name, cost, profit in reader:
+            actions.append(Action(name, cost, profit))
+        return actions
+
 
 # path for the csv file
-dataset_1 = "ress/data_anterieur/dataset1_Python+P7.csv"
-dataset_2 = "ress/data_anterieur/dataset2_Python+P7.csv"
+directory = "/Users/ludovic.trebalag/Documents/DA-Python/Projet-07/"
+dataset_1 = directory + "ress/data_anterieur/dataset1_Python+P7.csv"
+dataset_2 = directory + "ress/data_anterieur/dataset2_Python+P7.csv"
 
 # actions list for the optimized algo
-dataset_1_actions = get_objets_from_csv(dataset_1)
-dataset_2_actions = get_objets_from_csv(dataset_2)
+# dataset_1_actions = get_objets_from_csv(dataset_1)
+# dataset_2_actions = get_objets_from_csv(dataset_2)
+
 
 # actions list for the bruteforce algo
 action_1 = Action("Action-1", 20, 5)
@@ -37,7 +77,7 @@ actions = [
 ]
 
 # test with list of tuple
-actions_2 = [
+actions_test_tuple = [
     ("Action-1", 20, 5), ("Action-2", 30, 10), ("Action-3", 50, 15), ("Action-4", 70, 20),
     ("Action-5", 60, 17), ("Action-6", 80, 25), ("Action-7", 22, 7), ("Action-8", 26, 11),
     ("Action-9", 48, 13), ("Action-10", 34, 27), ("Action-11", 42, 17), ("Action-12", 110, 9),
