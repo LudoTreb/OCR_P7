@@ -1,5 +1,6 @@
 from src.algo_combinaison.data_actions import WALLET, actions, actions_test_tuple
 
+
 def sorted_actions_by_profitability(actions: list) -> list:
     """
     Sort actions by their profit_rate
@@ -97,25 +98,16 @@ def brut_force_recursive_tuple(capacite, elements, elements_selection=[]):
         return round(sum([i[1] * i[2] / 100 for i in elements_selection]), 2), 500 - capacite
 
 
-def brut_force_recursive(wallet: int, actions: list, n):
-    if n == 0 or wallet == 0:
-        return 0
-    if actions[n - 1].cost > wallet:
-        return brut_force_recursive(wallet, actions, n - 1)
-    else:
-        return actions[n - 1].cost, brut_force_recursive(wallet - actions[n - 1].profit_rate, actions, n - 1),
-        brut_force_recursive(wallet, actions, n - 1)
-
-
+# ALGO brute_force
 print("Algo brute_force sans recursivité avec liste d'objet : ")
 brute_force(WALLET, actions)
 
+# ALGO brut_force_recursive_1
 print("\nAlgo brute_force avec recursivité et liste d'objet : ")
 display_total_cost(brut_force_recursive_1(WALLET, actions)[1])
 display_benefit(brut_force_recursive_1(WALLET, actions)[1])
 
+# ALGO brut_force_recursive_tuple
 print("\nAlgo brute_force avec recursivité avec liste de tuple : ")
 result = brut_force_recursive_tuple(WALLET, actions_test_tuple)
 print(f"Cout total : {result[1]}€ \nBenefice de : {result[0]}")
-
-
