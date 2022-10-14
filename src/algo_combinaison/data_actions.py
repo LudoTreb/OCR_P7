@@ -50,15 +50,15 @@ dataset_2 = directory + "ress/data_anterieur/dataset2_Python+P7.csv"
 
 
 # actions list for the bruteforce algo
-action_1 = Action("Action-1", 20, 5)
-action_2 = Action("Action-2", 30, 10)
-action_3 = Action("Action-3", 50, 15)
-action_4 = Action("Action-4", 70, 20)
-action_5 = Action("Action-5", 60, 17)
-action_6 = Action("Action-6", 80, 25)
-action_7 = Action("Action-7", 22, 7)
-action_8 = Action("Action-8", 26, 11)
-action_9 = Action("Action-9", 48, 13)
+action_1 = Action("Action-01", 20, 5)
+action_2 = Action("Action-02", 30, 10)
+action_3 = Action("Action-03", 50, 15)
+action_4 = Action("Action-04", 70, 20)
+action_5 = Action("Action-05", 60, 17)
+action_6 = Action("Action-06", 80, 25)
+action_7 = Action("Action-07", 22, 7)
+action_8 = Action("Action-08", 26, 11)
+action_9 = Action("Action-09", 48, 13)
 action_10 = Action("Action-10", 34, 27)
 action_11 = Action("Action-11", 42, 17)
 action_12 = Action("Action-12", 110, 9)
@@ -83,4 +83,9 @@ actions_test_tuple = [
     ("Action-9", 48, 13), ("Action-10", 34, 27), ("Action-11", 42, 17), ("Action-12", 110, 9),
     ("Action-13", 38, 23), ("Action-14", 14, 1), ("Action-15", 18, 3), ("Action-16", 8, 8),
     ("Action-17", 4, 12), ("Action-18", 10, 14), ("Action-19", 24, 21), ("Action-20", 114, 18)
+]
+
+
+actions_petite_liste_test = [
+    action_1, action_2, action_3
 ]
