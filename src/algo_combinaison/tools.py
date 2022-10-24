@@ -1,11 +1,11 @@
 import time
 
 
-def display_best_combination(actions: list) -> str:
+def display_best_combination(actions: list):
     """
-    Display all the most profitable actions, their cost and their total profit
+    Display all the most profitable list_actions, their cost and their total profit
     Args:
-        actions: list A list of the most rentable actions
+        actions: list A list of the most rentable list_actions
 
     Returns: str
 
@@ -21,13 +21,13 @@ def display_best_combination(actions: list) -> str:
     print("=" * 25)
 
 
-def display_mesure_script(function, wallet: int, actions: list) -> str:
+def display_mesure_script(function, wallet: int, actions: list):
     """
-    Display the time it took the algorithm to find the most profitable list of actions to buy.
+    Display the time it took the algorithm to find the most profitable list of list_actions to buy.
     Args:
         function: function
-        wallet: int Maximun actions we can buy
-        actions: list A list of actions we can buy
+        wallet: int Maximun list_actions we can buy
+        actions: list A list of list_actions we can buy
 
     Returns: str
 
@@ -38,7 +38,7 @@ def display_mesure_script(function, wallet: int, actions: list) -> str:
     print(f"temps de calcul : {round(time.time() - start_time, 4)}sec")
 
 
-def display_graph(message: str, data: int, bar_graph=[]) -> str:
+def display_graph(message: str, data: float, bar_graph=[]):
     """
 
     Args:
