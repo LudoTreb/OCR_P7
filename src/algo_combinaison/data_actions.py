@@ -35,7 +35,7 @@ def get_objects_from_csv(csv_path: str) -> list:
         reader = csv.reader(csv_file)
         next(reader, None)
         for name, cost, profit in reader:
-            if float(cost) > 0:
+            if round(float(cost)) > 0:
                 actions.append(Action(name, round(float(cost)), float(profit)))
 
         return actions

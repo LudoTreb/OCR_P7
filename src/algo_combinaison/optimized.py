@@ -15,12 +15,14 @@ def optimized(wallet: int, actions: list) -> list:
     """
 
     matrice = [[0 for x in range(wallet + 1)] for x in range(len(actions) + 1)]
-    print(f"{len(actions)}\n {actions}")
+
     for i in range(1, len(actions) + 1):
 
         for capacity in range(1, wallet + 1):
             if actions[i - 1].cost <= capacity:
-                matrice[i][capacity] = max(actions[i - 1].profit + matrice[i - 1][capacity - actions[i - 1].cost], matrice[i - 1][capacity])
+                matrice[i][capacity] = max(
+                    actions[i - 1].profit + matrice[i - 1][capacity - actions[i - 1].cost],
+                    matrice[i - 1][capacity])
             else:
                 matrice[i][capacity] = matrice[i - 1][capacity]
 
@@ -38,7 +40,7 @@ def optimized(wallet: int, actions: list) -> list:
 
 
 print(f"{' Algo optimized ':=^25}")
-display_mesure_script(optimized, WALLET, dataset_2_actions)
+display_mesure_script(optimized, WALLET, dataset_1_actions)
 
 cpu = psutil.cpu_percent(4)
 ram = psutil.virtual_memory()[2]
